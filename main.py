@@ -1,5 +1,4 @@
 import fitz
-from PyPDF2 import PdfReader
 from PyPDF2 import PdfMerger
 import os
 import random
@@ -52,13 +51,13 @@ except:
     print(nom_origine+" n'a pas fonctionné")
 
 for i in ['speciales_couleurs', 'chiffres']:
-    
+
     try:
         os.mkdir(nom_origine+s+i)
     except:
         print(nom_origine+s+i+" n'a pas fonctionné")
 
-    for u in ['rouge','jaune','vert','bleu']:
+    for u in ['rouge', 'jaune', 'vert', 'bleu']:
 
         try:
             os.mkdir(nom_origine+s+i+s+u)
@@ -72,7 +71,7 @@ try:
 except:
     print(nom_origine+s+i+" n'a pas fonctionné")
 
-print("")    
+print("")
 print("---Done---")
 print("")
 
