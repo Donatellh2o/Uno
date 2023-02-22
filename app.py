@@ -15,22 +15,6 @@ larg = liste[0]/10
 haut = liste[1]/10
 
 
-#-- Route for numbers --
-@app.route('/with_parameters')
-def generate():
-
-    rgb = list(request.args.get('rgb').split(','))
-    key = request.args.get('key')
-
-    generate_number(rgb, key)
-
-    return send_file('page.png', mimetype="image/png")
-
-if __name__ == "__main__":
-    app.run(debug=True)
-#-----
-
-
 #-- Generator of numbers function --
 def generate_number(rgb, key):
 
@@ -100,4 +84,21 @@ def generate_number(rgb, key):
         page.insert_image(rect_, stream=img)
         pix = page.get_pixmap()
         pix.save('page.png')
+#-----
+
+
+
+#-- Route for numbers --
+@app.route('/with_parameters')
+def generate():
+
+    rgb = list(request.args.get('rgb').split(','))
+    key = request.args.get('key')
+
+    generate_number(rgb, key)
+
+    return send_file('page.png', mimetype="image/png")
+
+if __name__ == "__main__":
+    app.run(debug=True)
 #-----
