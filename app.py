@@ -15,30 +15,24 @@ larg = liste[0]/10
 haut = liste[1]/10
 
 
-# @app.route('/generate')
-# def index():
-#     # todo open image
-#     red = [200, 75, 51]
-#     doc = fitz.Document()
-#     page = doc._newPage(width=450, height=500)
-#     page = doc[0]
-#     rect = fitz.Rect(0, 0, 450, 500)
-#     page.draw_rect(rect, color=(red[0]/255, red[1]/255, red[2]/255), fill=(red[0]/255, red[1]/255, red[2]/255), overlay=False)
-#     pix = page.get_pixmap()
-#     pix.save('page.png')
-
-#     return send_file('page.png', mimetype="image/png")
-    # return doc
-
-
+#-- Route for numbers --
 @app.route('/with_parameters')
 def generate():
 
     rgb = list(request.args.get('rgb').split(','))
     key = request.args.get('key')
 
-    print(rgb)
-    print(key)
+    generate_number(rgb, key)
+
+    return send_file('page.png', mimetype="image/png")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+#-----
+
+
+#-- Generator of numbers function --
+def generate_number(rgb, key):
 
     color = (int(rgb[0])/255, int(rgb[1])/255, int(rgb[2])/255)
     fichier = 'png/chiffres/' + key + '.png'
@@ -106,8 +100,4 @@ def generate():
         page.insert_image(rect_, stream=img)
         pix = page.get_pixmap()
         pix.save('page.png')
-
-    return send_file('page.png', mimetype="image/png")
-
-if __name__ == "__main__":
-    app.run(debug=True)
+#-----
