@@ -16,10 +16,12 @@ haut = liste[1]/10
 
 
 #-- Generator of numbers function --
-def generate_number(rgb, key):
+def generate_number(rgb, key, validation):
 
     color = (int(rgb[0])/255, int(rgb[1])/255, int(rgb[2])/255)
-    fichier = 'png/chiffres/' + key + '.png'
+
+    if validation == True :
+        fichier = 'png/' + key + '.png'
 
     doc = fitz.open()
     page = doc._newPage(width=liste[0], height=liste[1])
@@ -64,6 +66,9 @@ def generate_number(rgb, key):
                 float((y2)/haut)*float(liste[1])
                 )
 
+            if validation == False:
+                fichier = 'png/' + key + '_signe.png'
+
         if (t == 3):
             x1 = float(larg - (ecart_angles + largeur_angles))
             y1 = float(haut - (ecart_angles + largeur_angles*1.69))
@@ -87,7 +92,6 @@ def generate_number(rgb, key):
 #-----
 
 
-
 #-- Route for numbers --
 @app.route('/with_parameters')
 def generate():
@@ -95,7 +99,11 @@ def generate():
     rgb = list(request.args.get('rgb').split(','))
     key = request.args.get('key')
 
-    generate_number(rgb, key)
+    if key in [0,10] == True :
+        generate_number(rgb, key, False)
+
+    elif (key in ['sauter', 'sens', 'plus_2'] == True):
+        generate_number(rgb, key, True)
 
     return send_file('page.png', mimetype="image/png")
 
