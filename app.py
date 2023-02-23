@@ -7,8 +7,8 @@ app = FlaskAPI(__name__)
 
 liste = [2100, 2970]
 ecart_angles = 15
-largeur_angles = 20
-largeur_centre = 50
+hauteur_angles = 34
+hauteur_centre = 85
 
 rect = fitz.Rect(0, 0, liste[0], liste[1])
 larg = liste[0]/10
@@ -36,11 +36,11 @@ def generate_number(rgb, key, validation):
         if (t == 1):
             x1 = float(ecart_angles)
             y1 = float(ecart_angles)
-            x2 = float(ecart_angles + largeur_angles)
-            y2 = float(ecart_angles + largeur_angles*1.69)
+            x2 = float(ecart_angles + hauteur_angles)
+            y2 = float(ecart_angles + hauteur_angles)
 
             if (fichier == ('6.png' or '9.png')):
-                y2 = float(ecart_angles + largeur_angles*1.95)
+                y2 = float(ecart_angles + hauteur_angles)
 
             rect_ = fitz.Rect(
                 float((x1)/larg)*float(liste[0]),
@@ -50,14 +50,10 @@ def generate_number(rgb, key, validation):
                 )
 
         if (t == 2):
-            x1 = float((larg-largeur_centre) / 2)
-            y1 = float((haut-largeur_centre*1.69) / 2)
-            x2 = float((larg-largeur_centre) / 2 + largeur_centre)
-            y2 = float((haut-largeur_centre*1.69) / 2 + largeur_centre*1.69)
-
-            if (fichier == ('6.png' or '9.png')):
-                y1 = float((haut-largeur_centre*1.95) / 2)
-                y2 = float(float((haut-largeur_centre*1.95) / 2 + largeur_centre*1.95))
+            x1 = float((larg-hauteur_centre) / 2)
+            y1 = float((haut-hauteur_centre) / 2)
+            x2 = float((larg-hauteur_centre) / 2 + hauteur_centre)
+            y2 = float((haut-hauteur_centre) / 2 + hauteur_centre)
 
             rect_ = fitz.Rect(
                 float((x1)/larg)*float(liste[0]),
@@ -66,16 +62,14 @@ def generate_number(rgb, key, validation):
                 float((y2)/haut)*float(liste[1])
                 )
 
-            if validation == False:
+            if validation is False:
                 fichier = 'png/' + key + '_signe.png'
 
         if (t == 3):
-            x1 = float(larg - (ecart_angles + largeur_angles))
-            y1 = float(haut - (ecart_angles + largeur_angles*1.69))
+            x1 = float(larg - (ecart_angles + hauteur_angles))
+            y1 = float(haut - (ecart_angles + hauteur_angles))
             x2 = float(larg - ecart_angles)
             y2 = float(haut - ecart_angles)
-            if (fichier == ('6.png' or '9.png')):
-                y1 = float(haut - (ecart_angles + largeur_angles*1.95))
 
             rect_ = fitz.Rect(
                 float((x1)/larg)*float(liste[0]),
@@ -98,14 +92,19 @@ def generate():
 
     rgb = list(request.args.get('rgb').split(','))
     key = request.args.get('key')
+    try:
+        if int(key) in range(0, 10):
+            generate_number(rgb, key, True)
+            return send_file('page.png', mimetype="image/png")
+    except:
+        print()
 
-    if key in [0,10] == True :
+    if key in ['sauter', 'sens', 'plus_2']:
         generate_number(rgb, key, False)
+        return send_file('page.png', mimetype="image/png")
 
-    elif (key in ['sauter', 'sens', 'plus_2'] == True):
-        generate_number(rgb, key, True)
-
-    return send_file('page.png', mimetype="image/png")
+    if key == 'complete':
+        return send_file('result.pdf', mimetype="image/pdf")
 
 if __name__ == "__main__":
     app.run(debug=True)

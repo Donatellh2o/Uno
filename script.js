@@ -20,10 +20,9 @@ cardForm.onsubmit = (event) => {
     cardcolor_b = document.getElementById('color_b').value;
 ``
     if (document.querySelector('#togg1').checked === true) {
-      console.log("Bponjour")
       aRgb = chosen_color;
     }
-    console.log(document.querySelector('#togg2').checked)
+
     if (document.querySelector('#togg2').checked === true){
 
         if (cardcolor_b == "red") aRgb = [200, 75, 51];
@@ -34,14 +33,19 @@ cardForm.onsubmit = (event) => {
 
         if (cardcolor_b == "green") aRgb = [146, 190, 83];
     }
+    
+    if (document.querySelector('#togg3').checked === true) {
+      cardnumber = 'complete'
+      aRgb = [0,0,0]
+      const link = createLink(aRgb, cardnumber);
+      window.open(link, "_blank");
+    }
 
-    cardnumber = document.getElementById('key').value;
-    console.log(aRgb);
-    console.debug(cardnumber);
-    const link = createLink(aRgb, cardnumber);
-  
-    window.open(link, "_blank");
-    console.debug(link);
+    if (document.querySelector('#togg3').checked === false) {
+      cardnumber = document.getElementById('key').value;
+      const link = createLink(aRgb, cardnumber);
+      window.open(link, "_blank");
+    }
 }
 
 function createLink(color, cardNumber) {

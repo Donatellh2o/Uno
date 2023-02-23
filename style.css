@@ -28,6 +28,7 @@ html, body {
 
 .form > button {
   font-size: 16px;
+  margin-top: 20px;
 }
 
 .title {
