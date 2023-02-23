@@ -5,10 +5,44 @@ html, body {
 }
 
 .form {
-  margin-top : 24px;
+  margin : 24px;
+}
 
+.form_body{
+  background-color: rgb(223, 131, 131);
+  width:500px;
+  height: 450px;
+  white-space: nowrap;
+  border-radius: 30px;
+}
+
+.form_text{
+  position: relative;
+  top: 20%;
+  margin: 50px;
+}
+
+.checkbox{
+  text-align: start;
 }
 
 .form > button {
   font-size: 16px;
+}
+
+.title {
+  font-size: 24px;
+  margin-top: 40px;
+}
+
+.msg{
+  margin-top: 25px;
+  padding: 25px;
+  display: none;
+  color: #fff;
+}
+
+.color_b{
+  position: relative;
+  top: 50%;
 }

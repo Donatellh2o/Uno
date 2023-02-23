@@ -14,35 +14,71 @@
 
 		<form id="card">
 
-			<div class="form">
-				<label for="name">Number on the card : </label>
-				<select name="number" id="key" required>
 
-					<option value="0">0</option>
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-					<option value="4">4</option>
-					<option value="5">5</option>
-					<option value="6">6</option>
-					<option value="7">7</option>
-					<option value="8">8</option>
-					<option value="9">9</option>
-				</select>
+			<div class="title">
+				<label for="title">Complete the informations below to get a Uno card </label>
 			</div>
 
-			<div class="form">
-				<label for="color">Color of the background : </label>
-				<input type="color" id="color" name="color" value="#C84B33">
+			<div class="form_body">
 
-			</div>
+				<div class="form_text">
+				
+					<div class="form">
+						<label for="name">Number on the card : </label>
+						<select name="number" id="key" required>
 
-			<div class="form">
-				<button type="submit">Generate</button>
-			</div>
+							<option value="0">0</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
 
-			<div class="form">
-				<img class="fit-picture" src="">
+					<legend> Wich way do you want to use to choose the color :</legend>
+				
+					<div class="checkbox">
+						<input value="personalized" type="radio" id="togg1" name="checkbox_1">
+						<label for="personalized">Personalized color</label>
+					</div>
+				
+					<div class="checkbox">
+						<input value="basics" type="radio" id="togg2" name="checkbox_1">
+						<label for="basics">Basics colors</label>
+					</div>
+
+					<div class="personalized msg">
+						<label for="color">Color of the background : </label>
+						<input type="color" id="color" name="color" value="#C84B33">
+					</div>
+
+					<div class="basics msg">
+
+						<div class="color_b">
+							<label for="color_b">Color of the card : </label>
+							<select name="color_b" id="color_b" required>
+	
+								<option value="red">Red</option>
+								<option value="yellow">Yellow</option>
+								<option value="blue">Blue</option>
+								<option value="green">Green</option>
+
+							</select>
+						</div>
+
+					</div>
+
+					<div class="form">
+						<button type="submit">Generate</button>
+					</div>
+
+				</div>
+
 			</div>
 
 		</form>

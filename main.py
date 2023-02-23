@@ -422,7 +422,7 @@ for b in range(7):
     sortie = 'resultats/reunis/'+str(compte[c])
     c += 1
 
-    doc.save(sortie+'.pdf')
+    doc.save(sortie+'.pdf', deflate=1)
 
 print("")
 print("---Done---")
