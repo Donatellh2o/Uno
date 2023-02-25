@@ -8,12 +8,13 @@ html, body {
   height: 1px;
 }
 
-.form {
-  margin: 15px;
+.part {
+  margin: 20px;
 }
 
 legend{
   margin: 5px;
+  font-weight: 800;
 }
 
 .checkbox{
@@ -34,19 +35,12 @@ legend{
 
 .form > button {
   font-size: 16px;
-  margin-top: 20px;
+  margin: 20px;
 }
 
 .title {
-  font-size: 24px;
-  margin-top: 40px;
-}
-
-.msg{
-  margin-top: 25px;
-  padding: 25px;
-  display: none;
-  color: #fff;
+  font-size: 28px;
+  margin: 40px;
 }
 
 .color_b{

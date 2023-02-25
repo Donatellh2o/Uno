@@ -20,9 +20,6 @@ def generate_number(rgb, key, validation):
 
     color = (int(rgb[0])/255, int(rgb[1])/255, int(rgb[2])/255)
 
-    if validation == True :
-        fichier = 'png/' + key + '.png'
-
     doc = fitz.open()
     page = doc._newPage(width=liste[0], height=liste[1])
 
@@ -33,14 +30,13 @@ def generate_number(rgb, key, validation):
 
     for t in range(1, 4):
 
+        fichier = 'png/' + key + '.png'
+
         if (t == 1):
             x1 = float(ecart_angles)
             y1 = float(ecart_angles)
             x2 = float(ecart_angles + hauteur_angles)
             y2 = float(ecart_angles + hauteur_angles)
-
-            if (fichier == ('6.png' or '9.png')):
-                y2 = float(ecart_angles + hauteur_angles)
 
             rect_ = fitz.Rect(
                 float((x1)/larg)*float(liste[0]),
@@ -62,7 +58,7 @@ def generate_number(rgb, key, validation):
                 float((y2)/haut)*float(liste[1])
                 )
 
-            if validation is False:
+            if validation == 1:
                 fichier = 'png/' + key + '_signe.png'
 
         if (t == 3):
@@ -94,13 +90,13 @@ def generate():
     key = request.args.get('key')
     try:
         if int(key) in range(0, 10):
-            generate_number(rgb, key, True)
+            generate_number(rgb, key, 0)
             return send_file('page.png', mimetype="image/png")
     except:
         print()
 
-    if key in ['sauter', 'sens', 'plus_2']:
-        generate_number(rgb, key, False)
+    if key in ['sauter', 'sens', 'plus_2', 'changer', 'plus_4']:
+        generate_number(rgb, key, 1)
         return send_file('page.png', mimetype="image/png")
 
     if key == 'complete':

@@ -2,98 +2,147 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Uno</title>
-	<link href="style.css" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Get UNO cards</title>
+    <link href="style2.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-	<center>
+    <center>
 
-		<form id="card">
+        <form id="card">
 
 
-			<div class="title">
-				<label for="title">Complete the informations below to get a Uno card </label>
-			</div>
+            <div class="title">
+                <label for="title">Complete the informations below to get a Uno card </label>
+            </div>
 
-			<div class="form_body">
+            <div class="form_body">
 
-				<div class="form_text">
-				
-					<div class="form">
-						<label for="name">Number on the card : </label>
-						<select name="number" id="key" required>
+                <div class="space"></div>
 
-							<option value="0">0</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="plus_2">+2</option>
-							<option value="sauter">Sauter le tour</option>
-							<option value="Sens">Changer de sens</option>
-						</select>
-					</div>
+                <div class="part">
 
-					<legend> Wich way do you want to use to choose the color :</legend>
-				
-					<div class="checkbox">
-						<input value="complete" type="radio" id="togg3" name="checkbox_1">
-						<label for="complete">Get the complete game</label>
-					</div>
-					
-					<div class="checkbox">
-						<input value="personalized" type="radio" id="togg1" name="checkbox_1">
-						<label for="personalized">Personalized color</label>
-					</div>
-				
-					<div class="checkbox">
-						<input value="basics" type="radio" id="togg2" name="checkbox_1">
-						<label for="basics">Basics colors</label>
-					</div>
+                    <div class="checkbox"></div>
+                    <legend>What do you want ?</legend>
+                    <div class="checkbox">
+                        <input value="complete" type="radio" id="choice1" name="checkbox_1">
+                        <label for="complete">Get the complete game</label>
+                    </div>
+                    <div class="checkbox">
+                        <input value="a_card" type="radio" id="choice2" name="checkbox_1">
+                        <label for="a_card">Get a simple card</label>
+                    </div>
+                </div>
 
-					<div class="personalized msg">
-						<label for="color">Color of the background : </label>
-						<input type="color" id="color" name="color" value="#C84B33">
-					</div>
+                <div class="part a_card msg1">
+                    <legend>Is it a card from a color or a black one?</legend>
+                    <div class="checkbox">
+                        <input value="personalized_colored_one" type="radio" id="choice3" name="checkbox_2">
+                        <label for="personalized_colored_one">A colored one (personalized color)</label>
+                    </div>
+                    <div class="checkbox">
+                        <input value="basics_colored_one" type="radio" id="choice4" name="checkbox_2">
+                        <label for="basics_colored_one">A colored one (basics colors)</label>
+                    </div>
+                    <div class="checkbox">
+                        <input value="black_one" type="radio" id="choice5" name="checkbox_2">
+                        <label for="black_one">A special black one</label>
+                    </div>
+                </div>
 
-					<div class="basics msg">
+                <div class="part personalized_colored_one msg2">
+                    <label for="name">Card name : </label>
+                    <select name="number" id="key1" required>
 
-						<div class="color_b">
-							<label for="color_b">Color of the card : </label>
-							<select name="color_b" id="color_b" required>
-	
-								<option value="red">Red</option>
-								<option value="yellow">Yellow</option>
-								<option value="blue">Blue</option>
-								<option value="green">Green</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="plus_2">+2</option>
+                        <option value="sauter">Skip</option>
+                        <option value="sens">Reverse</option>
+                        
+                    </select>
 
-							</select>
-						</div>
+                    <div class="part">
+                        <label for="color">Color of the background : </label>
+                        <input type="color" id="color" name="color" value="#C84B33">
+                    </div>
 
-					</div>
+                </div>
 
-					<div class="form">
-						<button type="submit">Generate</button>
-					</div>
+                <div class="part basics_colored_one msg2">
+                    <label for="name">Card name : </label>
+                    <select name="number" id="key2" required>
 
-				</div>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="plus_2">+2</option>
+                        <option value="sauter">Skip</option>
+                        <option value="Sens">Reverse</option>
 
-			</div>
+                    </select>
 
-		</form>
+                    <div class="part">
 
-	</center>
+                        <div class="color_b">
+                            <label for="color_b">Color of the card : </label>
+                            <select name="color_b" id="color_b" required>
+    
+                                <option value="red">Red</option>
+                                <option value="yellow">Yellow</option>
+                                <option value="blue">Blue</option>
+                                <option value="green">Green</option>
+    
+                            </select>
+                        </div>
+    
+                    </div>
 
-	<script src="./script.js"></script>
+                </div>
+
+                <div class="part black_one msg2">
+                    <label for="name">Card name : </label>
+                    <select name="number" id="key3" required>
+
+                        <option value="plus_4">Wild +4</option>
+                        <option value="changer">Wild</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form">
+                    <button type="submit">Generate</button>
+                </div>
+
+            </div>
+            <div class="space"></div>
+
+            </div>
+
+        </form>
+
+    </center>
+
+    <script src="./script2.js"></script>
 </body>
 
 </html>
