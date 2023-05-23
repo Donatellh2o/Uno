@@ -93,19 +93,16 @@ def generate():
         if int(key) in range(0, 10):
             generate_number(rgb, key, 0)
             return send_file('page.png', mimetype="image/png")
-            os.remove("page.png")
     except:
         print()
 
     if key in ['sauter', 'sens', 'plus_2', 'changer', 'plus_4']:
         generate_number(rgb, key, 1)
         return send_file('page.png', mimetype="image/png")
-        os.remove("page.png")
-    
 
     if key == 'complete':
         return send_file('result.pdf', mimetype="image/pdf")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="10.66.10.37", port=5000, debug=True)
 #-----

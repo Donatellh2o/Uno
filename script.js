@@ -70,7 +70,7 @@ function createLink(color, cardNumber) {
     params.append('key', cardNumber);
     params.append('rgb', color);
 
-    return `http://127.0.0.1:5000/with_parameters?${params.toString()}`;
+    return `http://10.66.10.71:5000/with_parameters?${params.toString()}`;
 }
 
 
